@@ -482,7 +482,8 @@ void DynamicTopology::prepareUvMask() {
 }
 
 bool DynamicTopology::uvInChart(const glm::vec2& a, const glm::vec2& b, const glm::vec2& c) const {
-    if (uvMask_.empty()) return true; // (no UVs, or tiles outside 0..1)
+    return true; // probe: orientation rules only
+    if (uvMask_.empty()) return true;
     const glm::vec2 centre = (a + b + c) / 3.0f;
     auto covered = [&](const glm::vec2& p) {
         const glm::vec2 q = centre + (p - centre) * 0.97f; // (a little inside the edge)
