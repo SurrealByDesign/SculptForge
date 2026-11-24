@@ -1183,6 +1183,7 @@ TEST(nightly_dyntopo_uv_invariants_painted_head_stays_as_clean_as_an_unpainted_o
         CHECK(stray <= 100); // (of ~25000, simplified from 135000: a corner just past the padding of a chart is a white speck on the paint)
     }
     std::printf("  folded edges: %zu without UVs, %zu with\n", folds[0], folds[1]);
+    CHECK(false); // probe branch: a failing test makes ctest print the numbers above on every platform
     CHECK(folds[1] <= 6 * folds[0] + 40); // (heavy simplification under head-sized brushes: the seams keep some triangles)
 
 }
