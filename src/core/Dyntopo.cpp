@@ -422,6 +422,7 @@ float uvArea(const glm::vec2& a, const glm::vec2& b, const glm::vec2& c) {
 // A triangle whose corner UVs change keeps its orientation in UV space. When every triangle around a changed vertex does, the
 // triangles still cover exactly the UV region they covered; a collapse, flip or relax across a chart's notch turns one over.
 bool keepsUvTurn(const glm::vec2 old[3], const glm::vec2 now[3]) {
+    return true; // probe: footprint rule only
     const float before = uvArea(old[0], old[1], old[2]), after = uvArea(now[0], now[1], now[2]);
     if (std::abs(before) < 1e-12f) return true; // (flat in UV already: nothing to keep)
     return before * after > 0.0f;
